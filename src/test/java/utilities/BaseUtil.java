@@ -92,13 +92,12 @@ public class BaseUtil {
                         //System.setProperty("webdriver.gecko.driver", base_directory + configProperties.getProperty("firefox.driver.path"));
                         WebDriverManager.firefoxdriver().setup();
                         cap = DesiredCapabilities.firefox();
-                        cap.setPlatform(Platform.LINUX);
                         //driver.set(new RemoteWebDriver(new URL("http://127.0.0.1:4446/wd/hub"), capFF));
                         break;
                     case "":
                         throw new Exception("browser parameter should be either \"chrome \\ safari \\ firefox\" in testng.xml");
                 }
-                driver.set(new RemoteWebDriver(new URL("http://0.0.0.0:4445"), cap));
+                driver.set(new RemoteWebDriver(new URL("http://localhost:4445"), cap));
                 driver.get().manage().window().maximize();
             }else{
                 throw new Exception("browser parameter is not configured in testng.xml");
