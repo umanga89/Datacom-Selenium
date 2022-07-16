@@ -33,20 +33,20 @@ public class BaseUtil {
     public static ExtentTest suite;
     public static ExtentTest test;
 
-    @BeforeSuite
-    public void startDocker() throws Exception {
-        try {
-            System.out.println("Executing before suite===================================================");
-            TerminalCommandsUtil.runTerminalCommandBash("docker compose up", "Node has been added");
-        }catch (Exception e){
-            throw e;
-        }
-    }
+//    @BeforeSuite
+//    public void startDocker() throws Exception {
+//        try {
+//            System.out.println("Executing before suite===================================================");
+//            TerminalCommandsUtil.runTerminalCommandBash("docker compose up", "Node has been added");
+//        }catch (Exception e){
+//            throw e;
+//        }
+//    }
 
-    @AfterSuite
-    public void stopDocker() throws Exception {
-        TerminalCommandsUtil.runTerminalCommandBash("docker compose down", "cancelled");
-    }
+//    @AfterSuite
+//    public void stopDocker() throws Exception {
+//        TerminalCommandsUtil.runTerminalCommandBash("docker compose down", "cancelled");
+//    }
 
     @BeforeMethod
     @Parameters("browser")
@@ -97,7 +97,7 @@ public class BaseUtil {
                     case "":
                         throw new Exception("browser parameter should be either \"chrome \\ safari \\ firefox\" in testng.xml");
                 }
-                driver.set(new RemoteWebDriver(new URL("http://localhost:4445"), cap));
+                driver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap));
                 driver.get().manage().window().maximize();
             }else{
                 throw new Exception("browser parameter is not configured in testng.xml");
