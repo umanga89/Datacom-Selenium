@@ -37,7 +37,7 @@ public class BaseUtil {
     public void startDocker() throws Exception {
         try {
             System.out.println("Executing before suite===================================================");
-            TerminalCommandsUtil.runTerminalCommand("docker compose up", "Node has been added");
+            TerminalCommandsUtil.runTerminalCommandBash("docker compose up", "Node has been added");
         }catch (Exception e){
             throw e;
         }
@@ -45,7 +45,7 @@ public class BaseUtil {
 
     @AfterSuite
     public void stopDocker() throws Exception {
-        TerminalCommandsUtil.runTerminalCommand("docker compose down", "cancelled");
+        TerminalCommandsUtil.runTerminalCommandBash("docker compose down", "cancelled");
     }
 
     @BeforeMethod
