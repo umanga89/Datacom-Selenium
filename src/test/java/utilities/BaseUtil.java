@@ -97,7 +97,7 @@ public class BaseUtil {
                     case "":
                         throw new Exception("browser parameter should be either \"chrome \\ safari \\ firefox\" in testng.xml");
                 }
-                driver.set(new RemoteWebDriver(new URL("http://116.88.152.138:4445"), cap));
+                driver.set(new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), cap));
                 driver.get().manage().window().maximize();
             }else{
                 throw new Exception("browser parameter is not configured in testng.xml");
